@@ -1,0 +1,23 @@
+---
+- name: Put puppet-agent on all nodes
+  hosts: all
+  tasks:
+    - name: Enable Jessie Backports as Jessie has outdated stuff :-(.
+      apt_repository:
+        repo: "deb http://ftp.de.debian.org/debian/ jessie-backports main"
+        state: present
+    - name: Install puppet-agent and hiera
+      apt:
+        name: "{{item}}"
+        state: latest
+      with_items:
+        - puppet
+        - hiera
+
+- name: Put puppetmaster on consul1
+  hosts: consul1.local
+  tasks:
+    - name: Install puppetmaster
+      apt:
+        name: puppetmaster
+        state: latest
