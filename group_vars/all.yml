@@ -1,0 +1,3 @@
+---
+ansible_ssh_host: localhost
+my_stage_specific_thing: I_DO_NOT_KNOW

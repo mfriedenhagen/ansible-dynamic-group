@@ -1,0 +1,5 @@
+[pypi]
+pypi.mamdev
+
+[all:vars]
+stage=production
