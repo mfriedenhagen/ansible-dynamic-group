@@ -1,5 +1,11 @@
 [pypi]
 pypi.mamdev
 
+[fizzbuzz]
+fizzbuzz.mamdev
+
+[fizzbuzz:vars]
+stage=production
+
 [all:vars]
 stage=development

@@ -1,9 +1,9 @@
 - name: My fantastic playbook!
-  hosts: pypi
+  hosts: all
   tasks:
     - name: Group by stage!
       group_by:
         key: "stage_{{stage}}"
-    - name: This is the value!
+    - name: "This is the value"
       debug:
-        var: my_stage_specific_thing
+        msg: "{{my_stage_specific_thing}} ({{inventory_hostname}})"
