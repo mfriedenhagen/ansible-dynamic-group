@@ -1,9 +1,11 @@
 - name: My fantastic playbook!
   hosts: all
-  tasks:
-    - name: Group by stage!
+  pre_tasks:
+    - name: "Group by stage in pre_tasks!"
       group_by:
         key: "stage_{{stage}}"
-    - name: "This is the value"
+      changed_when: false
+  tasks:
+    - name: "This is the value in tasks!"
       debug:
         msg: "{{my_stage_specific_thing}} ({{inventory_hostname}})"

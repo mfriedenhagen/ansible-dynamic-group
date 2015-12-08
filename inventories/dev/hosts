@@ -1,8 +1,5 @@
-[pypi]
-pypi.mamdev
-
 [fizzbuzz]
-fizzbuzz.mamdev
+consul1.local
 
 [fizzbuzz:vars]
 stage=production

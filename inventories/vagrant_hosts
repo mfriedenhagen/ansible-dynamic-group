@@ -1,0 +1,10 @@
+[nodes]
+consul1.local
+consul2.local
+consul3.local
+consul4.local
+consul5.local
+
+[all:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_private_key_file=".vagrant/machines/{{inventory_hostname_short}}/virtualbox/private_key"
