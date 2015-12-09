@@ -1,0 +1,6 @@
+[g2]
+consul1.local
+
+[all:vars]
+ansible_ssh_host=localhost
+stage=localhost

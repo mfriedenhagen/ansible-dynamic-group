@@ -12,4 +12,4 @@
       changed_when: no
     - name: "This is the value in tasks!"
       debug:
-        msg: "{{my_stage_specific_thing}} ({{inventory_hostname}}, {{uptime.stdout}})"
+        msg: "{{my_stage_specific_thing}} ({{inventory_hostname}}, {{uptime.stdout}} {{inventory_file}} {{inventory_dir}})"
