@@ -6,6 +6,10 @@
         key: "stage_{{stage}}"
       changed_when: false
   tasks:
+    - name: "Get uptime"
+      command: uptime
+      register: uptime
+      changed_when: no
     - name: "This is the value in tasks!"
       debug:
-        msg: "{{my_stage_specific_thing}} ({{inventory_hostname}})"
+        msg: "{{my_stage_specific_thing}} ({{inventory_hostname}}, {{uptime.stdout}})"
