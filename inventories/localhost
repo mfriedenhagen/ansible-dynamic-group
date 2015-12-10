@@ -7,5 +7,5 @@ localhost3
 localhost4
 
 [all:vars]
-ansible_ssh_host=localhost
+ansible_connection=local
 stage=localhost

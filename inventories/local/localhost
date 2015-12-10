@@ -2,5 +2,5 @@
 consul1.local
 
 [all:vars]
-ansible_ssh_host=localhost
+ansible_connection=local
 stage=localhost
