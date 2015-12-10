@@ -1,2 +1,3 @@
 ---
 my_stage_specific_thing: I_DO_NOT_KNOW
+puppet_master: consul1.local.

@@ -1,6 +1,7 @@
 ---
 - name: Put puppet-agent on all nodes
   hosts: all
+  gather_facts: no
   tasks:
     - name: Enable Jessie Backports as Jessie has outdated stuff :-(.
       apt_repository:
@@ -16,8 +17,29 @@
 
 - name: Put puppetmaster on consul1
   hosts: consul1.local
+  gather_facts: no
   tasks:
     - name: Install puppetmaster
       apt:
         name: puppetmaster
         state: latest
+
+- name: Modify puppet.conf and insert server
+  hosts: all
+  gather_facts: no
+  handlers:
+    - name: Restart puppet-agent.
+      service:
+        name: puppet
+        state: restarted
+  tasks:
+    - name: Modify puppet.conf and insert server
+      lineinfile:
+        dest: /etc/puppet/puppet.conf
+        insertafter: "\\[main\\]"
+        line: "server = {{puppet_master}}"
+      notify: Restart puppet-agent
+
+    - name: Sign outstanding certificates
+      command: "puppet ca sign {{inventory_hostname}}"
+      delegate_to: consul1.local
